@@ -50,8 +50,7 @@ const MovieDetail = () => {
                             edit={false}
                             size={30}
                         />
-                        <div className=''>{data.description}</div>
-
+                        <div className='border-b-2 pb-3'>{data.description}</div>
                         <AddReview id={id} />
                         <Reviews id={id} />
                     </div>

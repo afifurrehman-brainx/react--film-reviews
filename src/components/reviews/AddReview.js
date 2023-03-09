@@ -26,8 +26,10 @@ const AddReview = (props) => {
                 rating: rating
             });
             sweetAlert("Review Added Successfully", "success")
+            setReview("")
+            setRating(0)
         } catch (err) {
-            sweetAlert("Something went wrong", "error")
+            sweetAlert(err, "error")
         }
         setLoading(false)
     }
@@ -42,7 +44,7 @@ const AddReview = (props) => {
     }
 
     return (
-        <div className="mt-10 w-1/3">
+        <div className="mt-3 w-2/3">
             <ReactStars
                 size={25}
                 value={rating}

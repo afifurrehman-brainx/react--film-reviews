@@ -10,36 +10,33 @@ import { addDoc } from 'firebase/firestore'
 import { moviesRef } from '../firebase/firebase'
 
 const AddMovie = () => {
+    const [loading, setLoading] = useState(false)
     const [form, setForm] = useState({
         name: "",
         year: "",
         description: "",
         image: ""
     })
-    const [loading, setLoading] = useState(false)
     const addMovieHandler = async () => {
         setLoading(true);
         try {
             await addDoc(moviesRef, form);
-            swal({
-                title: "Successfully Added",
-                icon: "success",
-                buttons: false,
-                timer: 3000
-            })
+            sweetAlert("Successfully Added", "success")
             setForm({name: "", year:"", description: "", image: "" })
-            
         } catch (err) {
-            swal({
-                title: err,
-                icon: "error",
-                buttons: false,
-                timer: 3000
-            })
+            sweetAlert(err, "error")
         }
         setLoading(false);
     }
 
+    const sweetAlert = (title, icon) => {
+        swal({
+            title: title,
+            icon: icon,
+            buttons: false,
+            timer: 3000
+        })
+    }
     return (
         <section className="text-gray-600 body-font relative">
             <div className="container px-5 py-24 mx-auto">
