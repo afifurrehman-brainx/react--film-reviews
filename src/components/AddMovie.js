@@ -1,12 +1,13 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
+
+//UI
 import { Button } from '@mui/material'
 import { TailSpin } from 'react-loader-spinner'
+import swal from 'sweetalert'
+
+//Firebase
 import { addDoc } from 'firebase/firestore'
 import { moviesRef } from '../firebase/firebase'
-
-import swal from 'sweetalert'
-import { async } from '@firebase/util'
 
 const AddMovie = () => {
     const [form, setForm] = useState({
@@ -83,7 +84,6 @@ const AddMovie = () => {
                 </div>
             </div>
         </section>
-
     )
 }
 

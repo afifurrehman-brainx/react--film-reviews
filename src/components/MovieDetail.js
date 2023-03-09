@@ -1,9 +1,19 @@
+//React
 import React, { useEffect, useState } from 'react'
-import ReactStars from 'react-stars'
 import { useParams } from 'react-router-dom'
+
+//UI
+import ReactStars from 'react-stars'
+import { ThreeDots } from 'react-loader-spinner'
+
+//Firebase
 import { db } from '../firebase/firebase'
 import { doc, getDoc } from 'firebase/firestore'
-import { ThreeDots } from 'react-loader-spinner'
+
+//Components
+import AddReview from './reviews/AddReview'
+import Reviews from './reviews/Reviews'
+
 
 const MovieDetail = () => {
     const [loading, setLoading] = useState(true)
@@ -41,6 +51,9 @@ const MovieDetail = () => {
                             size={30}
                         />
                         <div className=''>{data.description}</div>
+
+                        <AddReview id={id} />
+                        <Reviews id={id} />
                     </div>
                 </div>
             }
